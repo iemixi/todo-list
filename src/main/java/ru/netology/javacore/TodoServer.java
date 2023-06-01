@@ -32,12 +32,12 @@ public class TodoServer {
                 ) {
                     String taskLine = in.readLine();
 
-                    Todos temp = gson.fromJson(taskLine, Todos.class);
+                    TodoRequest todoRequest = gson.fromJson(taskLine, TodoRequest.class);
 
-                    if (temp != null) {
-                        switch (temp.getType()) {
-                            case "ADD" -> todos.addTask(temp.getTask());
-                            case "REMOVE" -> todos.removeTask(temp.getTask());
+                    if (todoRequest != null) {
+                        switch (todoRequest.getType()) {
+                            case ADD -> todos.addTask(todoRequest.getTask());
+                            case REMOVE -> todos.removeTask(todoRequest.getTask());
                         }
                     }
 

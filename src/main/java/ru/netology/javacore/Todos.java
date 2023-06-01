@@ -1,29 +1,9 @@
 package ru.netology.javacore;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Todos {
-    private String type;
-    private String task;
-    private final List<String> tasks = new ArrayList<>();
-
-    public String getType() {
-        return type;
-    }
-
-    public String getTask() {
-        return task;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public void setTask(String task) {
-        this.task = task;
-    }
+    private final Set<String> tasks = new TreeSet<>();
 
     public void addTask(String task) {
         if (tasks.size() < 7) {
@@ -36,8 +16,6 @@ public class Todos {
     }
 
     public String getAllTasks() {
-        Collections.sort(tasks);
-
         return String.join(" ", tasks);
     }
 
